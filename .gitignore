@@ -1,2 +1,3 @@
 myenv/*
 .idea/*
+mysite/__pycache__/*
