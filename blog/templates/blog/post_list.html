@@ -1,22 +1,36 @@
+{%load static from staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     <title>Django Editor Blog</title>
 </head>
 <body>
     <div>
-        <h1><a href="">Django Editor Blog</a></h1>
+        <div class="page-header">
+            <h1><a href="">Django Editor Blog</a></h1>
+        </div>
     </div>
 
-    {% for post in posts %}
-    <div>
-        <p>published: {{ post.published_date }}</p>
-        <h1><a href="">{{ post }}</a></h1>
-        <p>{{ post.text|linebreaksbr }}</p>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+                {% for post in posts %}
+                <div class="post">
+                    <div class="date">
+                        <p>published: {{ post.published_date }}</p>
+                    </div>
+                    <h1><a href="">{{ post.title }}</a></h1>
+                    <p>{{ post.text|linebreaksbr }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
-    {% endfor %}
+
 </body>
 </html>
