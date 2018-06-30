@@ -31,7 +31,7 @@ h1, h2, h3, h4 {
     font-family: 'Nanum Pen Script', cursive;
 }
 
-.edit-btn {
+.edit-btn, .publish-btn, .remove-btn {
     float: right;
 }
 
