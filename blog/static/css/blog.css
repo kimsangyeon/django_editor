@@ -64,6 +64,6 @@ h1, h2, h3, h4 {
     color: #000000;
 }
 
-.post_text {
+.post_text, label[for='id_text'] {
     display:none;
 }
