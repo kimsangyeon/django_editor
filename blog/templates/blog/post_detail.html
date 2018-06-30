@@ -9,10 +9,16 @@
     </div>
     {% endif %}
     <h1>{{ post.title }}</h1>
+    <div class="post_text">{{ post.text|linebreaksbr }}</div>
     <div id="synapEditor" class="container">
-        <div class="se-contents">
-            {{ post.text|linebreaksbr }}
-        </div>
+        <div class="se-contents"></div>
     </div>
+    <script>
+        var elPostText = document.getElementsByClassName('post_text')[0];
+        var elSeContents = document.getElementById('synapEditor').querySelector('.se-contents');
+        var parser = new DOMParser();
+
+        elSeContents.innerHTML = elPostText.innerText;
+    </script>
 </div>
 {% endblock %}

@@ -7,11 +7,23 @@
                 <p>published: {{ post.published_date }}</p>
             </div>
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <div class="post_text">{{ post.text|linebreaksbr }}</div>
             <div id="synapEditor" class="container">
-                <div class="se-contents">
-                    {{ post.text|linebreaksbr }}
-                </div>
+                <div class="se-contents"></div>
             </div>
         </div>
     {% endfor %}
+    <script>
+        var elPosts = document.getElementsByClassName('post');
+
+        for (var i = 0; i < elPosts.length; i++) {
+            var elPost = elPosts[i];
+            var elPostText = elPost.querySelector('.post_text');
+            var elSeContents = elPost.querySelector('.se-contents');
+
+            elSeContents.innerHTML = elPostText.innerText;
+
+            elPostText.remove();
+        }
+    </script>
 {% endblock %}
