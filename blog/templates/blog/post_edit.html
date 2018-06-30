@@ -4,8 +4,6 @@
     <h1>New post</h1>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
-        <button id='newBtn' class ="btn btn-info">new</button>
-        <button id='listBtn' class="btn btn-primary">list</button>
         <button id='saveBtn' type="submit" class="btn btn-success">save</button>
         <div id="synapEditor" class="container"></div>
         <script>
