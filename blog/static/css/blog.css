@@ -27,8 +27,14 @@ h1, h2, h3, h4 {
     font-family: 'Nanum Pen Script', cursive;
 }
 
+.edit-btn {
+    float: right;
+}
+
 .date {
     color: #828282;
+    margin: 5px;
+    float: right;
 }
 
 .save {
