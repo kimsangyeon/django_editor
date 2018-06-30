@@ -7,6 +7,10 @@ body {
     padding-left: 15px;
 }
 
+form #id_text {
+    display: none;
+}
+
 .page-header {
     background-color: darkturquoise;
     margin-top: 0;

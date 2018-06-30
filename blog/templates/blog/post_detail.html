@@ -9,6 +9,10 @@
     </div>
     {% endif %}
     <h1>{{ post.title }}</h1>
-    <p>{{ post.text|linebreaksbr }}</p>
+    <div id="synapEditor" class="container">
+        <div class="se-contents">
+            {{ post.text|linebreaksbr }}
+        </div>
+    </div>
 </div>
 {% endblock %}

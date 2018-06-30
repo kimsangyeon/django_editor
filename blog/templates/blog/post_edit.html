@@ -4,6 +4,19 @@
     <h1>New post</h1>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
+        <button id='newBtn' class ="btn btn-info">new</button>
+        <button id='listBtn' class="btn btn-primary">list</button>
+        <button id='saveBtn' type="submit" class="btn btn-success">save</button>
+        <div id="synapEditor" class="container"></div>
+        <script>
+            window.editor = new SynapEditor('synapEditor');
+
+            document.getElementById('saveBtn').addEventListener('click', function () {
+                const tmpTextarea = document.getElementById('id_text');
+                const elSeContents = document.getElementsByClassName('se-contents')[0];
+
+                tmpTextarea.value = elSeContents.innerHTML;
+            });
+        </script>
     </form>
 {% endblock %}

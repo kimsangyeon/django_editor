@@ -7,7 +7,11 @@
                 <p>published: {{ post.published_date }}</p>
             </div>
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-            <p>{{ post.text|linebreaksbr }}</p>
+            <div id="synapEditor" class="container">
+                <div class="se-contents">
+                    {{ post.text|linebreaksbr }}
+                </div>
+            </div>
         </div>
     {% endfor %}
 {% endblock %}
