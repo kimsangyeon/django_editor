@@ -29,6 +29,10 @@ ALLOWED_HOSTS = ['127.0.0.1', '.yeoneditor.com']
 
 LOGIN_REDIRECT_URL = '/'
 
+# Upload file MEDIA URL ROOT
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 # Application definition
 

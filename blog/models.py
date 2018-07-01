@@ -17,3 +17,7 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+class UploadFileModel(models.Model):
+    file = models.FileField(null=True)
+    extension = models.TextField(default='')

@@ -1,8 +1,14 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse, JsonResponse
 from django.utils import timezone
 from .models import Post
 from .forms import PostForm
+from .forms import UploadFileForm
+import json
+
+
+from django.views.decorators.csrf import csrf_exempt
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -55,3 +61,18 @@ def post_remove(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.delete()
     return redirect('post_list')
+
+@csrf_exempt
+def upload_file(request):
+    if request.method == "POST":
+        form = UploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            fileModel = form.save()
+            return HttpResponse(json.dumps({
+                "uploadPath": 'media' + '/' + fileModel.file.name
+            }).encode('utf8'));
+        else:
+            form = UploadFileForm({})
+        return JsonResponse({
+            "uploadPath": ''
+        });
