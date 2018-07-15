@@ -84,4 +84,5 @@ def import_doc(request):
         docFile = request.FILES['docFile']
         fs = FileSystemStorage()
         doc = fs.save('docs/' + docFile.name, docFile)
-        response = requests.post("http://synapeditor.iptime.org:7419/importDoc", files = {'file': doc})
+        response = requests.post("http://synapeditor.iptime.org:7419/importDoc", files = {'docFile': doc})
+        return HttpResponse(response.text)
