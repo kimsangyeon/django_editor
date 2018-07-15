@@ -6,8 +6,9 @@ from .models import Post
 from .forms import PostForm
 from .forms import UploadFileForm
 import json
+import requests
 
-
+from django.core.files.storage import FileSystemStorage
 from django.views.decorators.csrf import csrf_exempt
 
 def post_list(request):
@@ -70,9 +71,17 @@ def upload_file(request):
             fileModel = form.save()
             return HttpResponse(json.dumps({
                 "uploadPath": 'media' + '/' + fileModel.file.name
-            }).encode('utf8'));
+            }).encode('utf8'))
         else:
             form = UploadFileForm({})
         return JsonResponse({
             "uploadPath": ''
-        });
+        })
+
+@csrf_exempt
+def import_doc(request):
+    if request.method == "POST":
+        docFile = request.FILES['docFile']
+        fs = FileSystemStorage()
+        doc = fs.save('docs/' + docFile.name, docFile)
+        response = requests.post("http://synapeditor.iptime.org:7419/importDoc", files = {'file': doc})

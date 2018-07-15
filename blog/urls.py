@@ -10,4 +10,5 @@ urlpatterns = [
     path('post/<int:pk>/publish', views.post_publish, name='post_publish'),
     path('post/<int:pk>/remove', views.post_remove, name='post_remove'),
     path('uploadFile', views.upload_file, name='upload_file'),
+    path('importDoc', views.import_doc, name='import_doc'),
 ]
