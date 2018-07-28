@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     <script src="{% static 'js/synapeditor.js' %}"></script>
     <title>Django Editor Blog</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" type="text/css" media="all" rel="stylesheet" />
+    <!--<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>-->
+    <!--<link href="{% static 'froala_editor/css/froala_editor.min.css' %}" type="text/css" media="all" rel="stylesheet" />-->
+    <!--<link href="{% static 'froala_editor/css/froala_style.min.css' %}" type="text/css" media="all" rel="stylesheet" />-->
+    <!--<script type="text/javascript" src="{% static 'froala_editor/js/froala_editor.min.js' %}"></script>-->
+    <!--<script type="text/javascript" src="{% static 'froala_editor/js/froala_editor.pkgd.min.js' %}"></script>-->
+    {{ form.media }}
 </head>
 <body>
     <div class="page-header">
@@ -29,5 +36,6 @@
             </div>
         </div>
     </div>
+    <!--<div id="froala-editor"></div>-->
 </body>
 </html>

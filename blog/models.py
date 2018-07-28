@@ -1,6 +1,10 @@
 from django.db import models
 from django.utils import timezone
+from froala_editor.fields import FroalaField
+from django.conf import settings
 
+class Page(models.Model):
+    contents = FroalaField(plugins=settings.FROALA_EDITOR_PLUGINS)
 
 class Post(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)

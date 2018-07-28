@@ -1,5 +1,11 @@
 from django import forms
-from .models import Post, UploadFileModel
+from .models import Post, Page, UploadFileModel
+from froala_editor.widgets import FroalaEditor
+
+class PageForm(forms.ModelForm):
+    class Meta:
+        model = Page
+        fields = ('contents',)
 
 class PostForm(forms.ModelForm):
     class Meta:

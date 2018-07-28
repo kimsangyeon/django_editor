@@ -4,23 +4,30 @@
     <h1>New post</h1>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
-        <button id='saveBtn' type="submit" class="btn btn-success">save</button>
-        <div id="synapEditor" class="container"></div>
-        <script>
-            window.editor = new SynapEditor('synapEditor');
+        <!--<button id='saveBtn' type="submit" class="btn btn-success">save</button>-->
+        <!--<div id="synapEditor" class="container"></div>-->
+        <!--<script>-->
+            <!--window.editor = new SynapEditor('synapEditor');-->
 
-            const tmpTextarea = document.getElementById('id_text');
-            const tmpDiv = document.createElement('div');
+            <!--const tmpTextarea = document.getElementById('id_text');-->
+            <!--const tmpDiv = document.createElement('div');-->
 
-            tmpDiv.innerHTML = tmpTextarea.innerText;
+            <!--tmpDiv.innerHTML = tmpTextarea.innerText;-->
 
-            window.editor.initSEModel(tmpDiv.innerHTML, null, null);
+            <!--window.editor.initSEModel(tmpDiv.innerHTML, null, null);-->
 
-            document.getElementById('saveBtn').addEventListener('click', function () {
-                const elSeContents = document.getElementsByClassName('se-contents')[0];
+            <!--document.getElementById('saveBtn').addEventListener('click', function () {-->
+                <!--const elSeContents = document.getElementsByClassName('se-contents')[0];-->
 
-                tmpTextarea.value = elSeContents.innerHTML;
-            });
-        </script>
+                <!--tmpTextarea.value = elSeContents.innerHTML;-->
+            <!--});-->
+
+            <!--$(function() {-->
+                <!--document.getElementById('froala-editor').innerHTML = tmpTextarea.innerText;-->
+                <!--$('div#froala-editor').froalaEditor({-->
+                    <!--toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '|', 'fontFamily', 'fontSize', 'color', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '-', 'insertLink', 'insertImage', 'insertVideo', 'insertFile', 'insertTable', '|', 'emoticons', 'specialCharacters', 'insertHR', 'selectAll', 'clearFormatting', '|', 'print', 'help', 'html', '|', 'undo', 'redo']-->
+                <!--});-->
+            <!--});-->
+        <!--</script>-->
     </form>
 {% endblock %}
